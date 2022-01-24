@@ -1,0 +1,56 @@
+version: '3'
+services:
+    nginx:
+        build:
+            context: ./.docker/nginx
+        image: nginx
+        container_name: nginx
+        volumes:
+            - ../gas-api:/var/www
+        ports:
+            - 8081:80
+            #- 443:443
+        restart: always
+        depends_on:
+            - php-fpm
+            - postgres
+        networks:
+            - app-network
+
+    php-fpm:
+        container_name: php-fpm
+        build:
+            context: ./.docker/php-fpm
+        restart: always
+        ports:
+            - 9000
+        volumes:
+            - ../gas-api:/var/www/gas-api
+        environment:
+            XDEBUG_CONFIG: "remote_host=host.docker.internal remote_enable=1"
+            PHP_IDE_CONFIG: "serverName=Docker"
+        networks:
+            - app-network
+
+    postgres:
+        container_name: postgres
+        image: postgres:9.6
+        restart: always
+        environment:
+            - POSTGRES_DB=${DB_DATABASE}
+            - POSTGRES_USER=${DB_USERNAME}
+            - POSTGRES_PASSWORD=${DB_PASSWORD}
+        ports:
+            - 5432:5432
+        volumes:
+            - ./.docker/postgres/:/docker-entrypoint-initdb.d/
+        networks:
+            - app-network
+
+networks:
+    app-network:
+        driver: bridge
+
+volumes:
+    mysql-data:
+        driver: local
