@@ -1,7 +1,7 @@
-##Docker for gas-api project
+## Docker for gas-api project
 
-##to run:
-###clone to parent directory gas-api
+## to run:
+### clone to parent directory gas-api
 `cd gas-docker`
 
 `docker-compose up -d`
