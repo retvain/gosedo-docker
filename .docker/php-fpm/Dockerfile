@@ -38,6 +38,4 @@ COPY keys.dev.pub /var/www/.composer/keys.dev.pub
 COPY keys.tags.pub /var/www/.composer/keys.tags.pub
 COPY cacert.pem /etc/ssl/certs/cacert.pem
 
-RUN chmod 777 -R /var/www/gas-api/storage
-
 EXPOSE 9000
