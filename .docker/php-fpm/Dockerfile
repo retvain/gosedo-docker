@@ -1,5 +1,7 @@
 FROM php:7.0.33-fpm
 
+RUN useradd -ms /bin/bash gas
+
 WORKDIR /usr/local/etc/php-fpm.d
 
 USER root

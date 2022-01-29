@@ -8,4 +8,4 @@
 
 `docker-compose exec php-fpm composer install`
 
-`docker-compose exec php-fpm php artisan migrate:refresh --seed --force`
+`docker-compose exec -u gas php-fpm php artisan migrate:refresh --seed --force`
