@@ -6,7 +6,7 @@ services:
         image: nginx
         container_name: nginx
         volumes:
-            - ../gas-api:/var/www
+            - ../gas-api:/var/www/gas-api
         ports:
             - 8081:80
             #- 443:443
