@@ -34,7 +34,7 @@ services:
 
     postgres:
         container_name: postgres
-        image: postgres:9.6
+        image: postgres:11.10
         restart: always
         environment:
             - POSTGRES_DB=${DB_DATABASE}

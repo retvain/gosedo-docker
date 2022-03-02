@@ -1,4 +1,4 @@
-FROM php:7.0.33-fpm
+FROM php:7.3.19-fpm
 
 RUN useradd -ms /bin/bash gas
 
