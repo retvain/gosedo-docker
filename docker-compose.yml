@@ -46,6 +46,8 @@ services:
             - 5432:5432
         volumes:
             - ./.docker/postgres/:/docker-entrypoint-initdb.d/
+        build:
+            context: ./.docker/postgres
         networks:
             - app-network
 
