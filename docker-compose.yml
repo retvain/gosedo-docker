@@ -6,7 +6,8 @@ services:
         image: nginx
         container_name: nginx
         volumes:
-            - ../gas-api:/var/www/gas-api
+            - ../gas-api-operator-arm:/var/www/gas-api-operator-arm
+            - ../gas-api-organizator-arm:/var/www/gas-api-organizator-arm
         ports:
             - 8081:80
             #- 443:443
@@ -20,7 +21,8 @@ services:
     php-fpm:
         container_name: php-fpm
         volumes:
-            - ../gas-api:/var/www/gas-api
+            - ../gas-api-operator-arm:/var/www/gas-api-operator-arm
+            - ../gas-api-organizator-arm:/var/www/gas-api-organizator-arm
         build:
             context: ./.docker/php-fpm
         restart: always
@@ -37,7 +39,7 @@ services:
         image: postgres:11.10
         restart: always
         environment:
-            - POSTGRES_DB=${DB_DATABASE}
+            - POSTGRES_MULTIPLE_DATABASES=${DB_DATABASE_ORGANIZATOR},${DB_DATABASE_OPERATOR}
             - POSTGRES_USER=${DB_USERNAME}
             - POSTGRES_PASSWORD=${DB_PASSWORD}
         ports:

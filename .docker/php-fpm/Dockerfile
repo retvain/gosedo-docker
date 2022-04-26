@@ -24,7 +24,7 @@ RUN apt update && apt upgrade -y
 
 # clean
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-WORKDIR /var/www/gas-api
+WORKDIR /var/www
 
 # xdebug
 RUN pecl install xdebug-2.7.2 && docker-php-ext-enable xdebug
