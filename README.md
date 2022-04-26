@@ -6,6 +6,12 @@
 
 `docker-compose up -d`
 
-`docker-compose exec php-fpm composer install`
+`docker-compose exec php-fpm bash`
 
-`docker-compose exec -u gas php-fpm php artisan migrate:refresh --seed --force`
+`cd gas-api-operator-arm`
+`composer install`
+`php artisan migrate:refresh --seed --force`
+
+`cd ../gas-api-operator-arm`
+`composer install`
+`php artisan migrate:refresh --seed --force`
