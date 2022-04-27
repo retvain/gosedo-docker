@@ -15,3 +15,5 @@
 `cd ../gas-api-operator-arm`
 `composer install`
 `php artisan migrate:refresh --seed --force`
+
+`ln -s /var/www/gas-api-operator-arm/vendor/voskhod /var/www/gas-api-organizator-arm/vendor`
