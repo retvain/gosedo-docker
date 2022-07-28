@@ -23,6 +23,7 @@ services:
         volumes:
             - ../gas-api-operator-arm:/var/www/gas-api-operator-arm
             - ../gas-api-organizator-arm:/var/www/gas-api-organizator-arm
+            - ./storage:/var/www/storage
         build:
             context: ./.docker/php-fpm
         restart: always
@@ -39,6 +40,7 @@ services:
         image: postgres:11.10
         restart: always
         environment:
+            - TZ=Europe/Moscow
             - POSTGRES_MULTIPLE_DATABASES=${DB_DATABASE_ORGANIZATOR},${DB_DATABASE_OPERATOR}
             - POSTGRES_USER=${DB_USERNAME}
             - POSTGRES_PASSWORD=${DB_PASSWORD}
