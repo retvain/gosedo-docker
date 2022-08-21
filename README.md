@@ -4,7 +4,7 @@
 ### clone to parent directory gas-api
 `cd gas-docker`
 
-`docker-compose up -d`
+`docker-compose up nginx php-fpm postgres`
 
 `docker-compose exec php-fpm bash`
 
@@ -16,5 +16,5 @@
 `composer install`
 `php artisan migrate:refresh --seed --force`
 
-symlink if you needed
-`ln -s /var/www/gas-api-operator-arm/vendor/voskhod /var/www/gas-api-organizator-arm/vendor`
+## to run version-applier service:
+`docker-compose up version-applier`
