@@ -53,6 +53,19 @@ services:
         networks:
             - app-network
 
+    version-applier:
+        container_name: version-applier
+        volumes:
+            - ../gas-version-applier:/home/gas-version-applier
+            - ../gas-api-organizator-arm:/var/www/gas-api-organizator-arm
+            - ./storage:/var/www/storage
+        build:
+            context: ./.docker/go/version-applier
+        networks:
+            - app-network
+        depends_on:
+            - postgres
+            - php-fpm
 networks:
     app-network:
         driver: bridge
