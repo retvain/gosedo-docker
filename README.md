@@ -16,5 +16,9 @@
 `composer install`
 `php artisan migrate:refresh --seed --force`
 
+`cd ../nsi-api`
+`composer install`
+`php artisan migrate:refresh --seed --force`
+
 ## to run version-applier service:
 `docker-compose up version-applier`
