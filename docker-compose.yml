@@ -23,6 +23,7 @@ services:
         volumes:
             - ../gas-api-operator-arm:/var/www/gas-api-operator-arm
             - ../gas-api-organizator-arm:/var/www/gas-api-organizator-arm
+            - ../nsi-api:/var/www/nsi-api
             - ./storage:/var/www/storage
         build:
             context: ./.docker/php-fpm
@@ -41,7 +42,7 @@ services:
         restart: always
         environment:
             - TZ=Europe/Moscow
-            - POSTGRES_MULTIPLE_DATABASES=${DB_DATABASE_ORGANIZATOR},${DB_DATABASE_OPERATOR}
+            - POSTGRES_MULTIPLE_DATABASES=${DB_DATABASE_ORGANIZATOR},${DB_DATABASE_OPERATOR},${DB_DATABASE_NSI}
             - POSTGRES_USER=${DB_USERNAME}
             - POSTGRES_PASSWORD=${DB_PASSWORD}
         ports:
