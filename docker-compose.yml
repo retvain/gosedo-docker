@@ -43,7 +43,7 @@ services:
         restart: always
         environment:
             - TZ=Europe/Moscow
-            - POSTGRES_MULTIPLE_DATABASES=${DB_DATABASE_ORGANIZATOR},${DB_DATABASE_OPERATOR},${DB_DATABASE_NSI}
+            - POSTGRES_MULTIPLE_DATABASES=${DB_DATABASE_ORGANIZATOR},${DB_DATABASE_OPERATOR},${DB_DATABASE_NSI},${DB_DATABASE_NSI2}
             - POSTGRES_USER=${DB_USERNAME}
             - POSTGRES_PASSWORD=${DB_PASSWORD}
         ports:
