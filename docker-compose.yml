@@ -24,6 +24,7 @@ services:
             - ../gas-api-operator-arm:/var/www/gas-api-operator-arm
             - ../gas-api-organizator-arm:/var/www/gas-api-organizator-arm
             - ../nsi-api:/var/www/nsi-api
+            - ../nsi2-api:/var/www/nsi2-api
             - ./storage:/var/www/storage
         build:
             context: ./.docker/php-fpm
