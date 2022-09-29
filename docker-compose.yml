@@ -25,6 +25,8 @@ services:
             - ../gas-api-organizator-arm:/var/www/gas-api-organizator-arm
             - ../nsi-api:/var/www/nsi-api
             - ../nsi2-api:/var/www/nsi2-api
+            - ../kpgu_status_back:/var/www/kpgu_status_back
+            - ../prototype:/var/www/prototype
             - ./storage:/var/www/storage
         build:
             context: ./.docker/php-fpm
@@ -43,7 +45,7 @@ services:
         restart: always
         environment:
             - TZ=Europe/Moscow
-            - POSTGRES_MULTIPLE_DATABASES=${DB_DATABASE_ORGANIZATOR},${DB_DATABASE_OPERATOR},${DB_DATABASE_NSI},${DB_DATABASE_NSI2}
+            - POSTGRES_MULTIPLE_DATABASES=${DB_DATABASE_ORGANIZATOR},${DB_DATABASE_OPERATOR},${DB_DATABASE_NSI},${DB_DATABASE_NSI2},${DB_DATABASE_KPGU_STATUS},${DB_DATABASE_PROTOTYPE}
             - POSTGRES_USER=${DB_USERNAME}
             - POSTGRES_PASSWORD=${DB_PASSWORD}
         ports:
